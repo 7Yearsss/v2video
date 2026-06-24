@@ -57,7 +57,13 @@ Invoke-RestMethod -Uri http://localhost:3000/storyboard -Method Post `
 pnpm --filter mobile start
 ```
 
-Metro 启动后在终端按键:`w` 浏览器 / `a` Android 模拟器 / `i` iOS 模拟器(需 Mac)。
+Metro 启动后:用 **Expo Go**(iOS 相机扫终端二维码)/ 按 `w` 浏览器 / `a` Android 模拟器 / `i` iOS 模拟器(需 Mac)。
 
-> ⚠️ 默认模板使用 `NativeTabs` 等原生模块,**Expo Go 无法加载**,需 development build。
-> 且 M3 的 Skia + 录屏模块也必须 dev build。详见下方说明 / `docs/`。
+手机与电脑需在同一 Wi-Fi;Windows 防火墙挡住时用隧道模式:
+
+```bash
+pnpm --filter mobile start --tunnel
+```
+
+> 当前骨架已精简为 **Expo Go 兼容**(布局用普通 Stack,非 NativeTabs)。
+> 但 M3 的 Skia 渲染 + 录屏原生模块**必须 development build**,届时 Expo Go 不再适用。
